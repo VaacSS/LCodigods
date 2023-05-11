@@ -3,6 +3,7 @@
 #include <fstream>
 #include "santis.h"
 using namespace std;
+int a,m=100,ma=100;
 void prom(float promedio[],int e){
     if(promedio[e]<=59){
         cout<<" (REPROBADO)"<<endl;
@@ -100,11 +101,9 @@ void addeditar(int a,int m,int ma,int e,string nombre[],string carrera[],string 
         promedio[e]=ppp/d;
 }
 int main() {
-    int d[5],a,m,ma,e;
+    int d[5],m,ma,e;
     cout<<"\nCUANTOS ALUMNOS HAY EN LA INSTITUCION: ";
     a=v();
-    m=100;
-    ma=100;
     if(a<=0){
         cout<<"ingresa mas de uno no sea menso";
         exit(EXIT_SUCCESS);
@@ -122,7 +121,6 @@ int main() {
         }
     }
     do{
-        system("cls");
         mostrar(a,nombre,carrera,promedio);
         cout<<"\nQUE DESEAS HACER: "<<endl;
         cout<<"0 - SALIR"<<endl;
