@@ -240,3 +240,4 @@ int main() {
     }while(d[0]!=0);
     garchivo(promedio,nombre,carrera);
 }
+// FALTA QUE GUARDE CALIF, MAESTROS Y MATERIAS
