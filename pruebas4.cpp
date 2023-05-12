@@ -36,17 +36,15 @@ void datos(int a,int m,int ma,int e,string nombre[],string carrera[],string maes
     cout<<"MAESTROS: "<<endl;
     for(int i=0;i<ma;i++){
             fflush(stdin);
-            if(maestrosma[i]==" "){
-            }else{
-            cout<<maestrosma[i]<<endl;
+            if(maestrosma[i]!=" "){
+                cout<<maestrosma[i]<<endl;
             }
         }
         cout<<"MATERIAS: "<<endl;
         for(int i=0;i<a;i++){
             fflush(stdin);
-            if(materiasm[i]==" "){
-            }else{
-            cout<<materiasm[i]<<endl;
+            if(materiasm[i]!=" "){
+                cout<<materiasm[i]<<endl;
             cout<<"calificacion: "<<califm[i]<<endl;
             }
         }
@@ -114,6 +112,7 @@ void A(){
         getline(archivo,a1);
         a = atoi(a1.c_str());
     }
+    archivo.close();
 }
 void archivo(float promedio[],string nombre[],string carrera[]){
     ifstream archivo("nombre.txt");
@@ -145,6 +144,24 @@ void archivo(float promedio[],string nombre[],string carrera[]){
         }
     archivo.close();
 }
+void garchivo(float promedio[],string nombre[],string carrera[]){
+    ofstream archivo1("nombre.txt");
+    archivo1<<a<<endl;
+    for (int i = 0; i < a; i++) {
+           archivo1 << nombre[i] << endl;
+       }
+    archivo1.close();
+    ofstream archivo2("carrera.txt");
+    for (int i = 0; i < a; i++) {
+           archivo2 << carrera[i] << endl;
+       }
+       archivo2.close();
+    ofstream archivo3("promedio.txt");
+    for (int i = 0; i < a; i++) {
+           archivo3 << promedio[i] << endl;
+       }
+    archivo3.close();
+}
 int main() {
     int d[5],e;
     A();
@@ -154,20 +171,23 @@ int main() {
     float promedio[a];
     for(int i=0;i<a;i++){
         nombre[i]=" ";
-        maestrosma[i]= " ";
-        materiasm[i]=" ";
         for(int j=0;j<m;j++){
             calif[i][j]=0;
         }
+    }
+    for(int i=0;i<100;i++){
+        maestrosma[i]=" ";
+        materiasm[i]=" ";
     }
     archivo(promedio,nombre,carrera);
     do{
         mostrar(a,nombre,carrera,promedio);
         cout<<"\nQUE DESEAS HACER: "<<endl;
-        cout<<"0 - SALIR"<<endl;
+        cout<<"0 - SALIR Y GUARDAR CAMBIOS"<<endl;
         cout<<"1 - AGREGAR/EDITAR ALUMNOS"<<endl;
         cout<<"2 - MOSTRAR INFO ALUMNOS"<<endl;
         cout<<"3 - BORRAR DATOS DE ALGUN ALUMNO"<<endl;
+        cout<<"4 - SALIR SIN GUARDAR"<<endl;
         d[0]=v();
         if(d[0]==1){
             cout<<"QUE NUMERO DE ALUMNO DESEAS AGREGAR/EDITAR: ";
@@ -218,4 +238,5 @@ int main() {
             cout<<"INGRESA ALGO VALIDO"<<endl;
         }
     }while(d[0]!=0);
+    garchivo(promedio,nombre,carrera);
 }

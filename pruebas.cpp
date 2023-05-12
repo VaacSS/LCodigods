@@ -24,10 +24,7 @@ void archivo(float promedio[],string nombre[],string carrera[]){
     ifstream archivo("nombre.txt");
     if (archivo.peek() == ifstream::traits_type::eof()) {
         ofstream archivo("nombre.txt");
-        ofstream archivo1("carrera.txt");
-        ofstream archivo2("maestros.txt");
-        ofstream archivo3("materia.txt");
-        ofstream archivo4("calif.txt");
+        ofstream archivo1("carrera.txt");;
         ofstream archivo5("prom.txt");
     }else {
         for(int i=0;i<a;i++){
@@ -37,9 +34,6 @@ void archivo(float promedio[],string nombre[],string carrera[]){
         for(int i=0;i<a;i++){
             getline(archivo1,carrera[i]);
         }
-        ifstream archivo2("maestros.txt");
-        ifstream archivo3("materia.txt");
-        ifstream archivo4("calif.txt");
         ifstream archivo5("prom.txt");
         string promedio1[a];
        for(int i=0;i<a;i++){
@@ -49,6 +43,24 @@ void archivo(float promedio[],string nombre[],string carrera[]){
     }
     archivo.close();
 }
+void garchivo(float promedio[],string nombre[],string carrera[]){
+    ofstream archivo1("nombre.txt");
+    archivo1<<a<<endl;
+    for (int i = 0; i < a; i++) {
+           archivo1 << nombre[i] << endl;
+       }
+    archivo1.close();
+    ofstream archivo2("carrera.txt");
+    for (int i = 0; i < a; i++) {
+           archivo2 << carrera[i] << endl;
+       }
+       archivo2.close();
+    ofstream archivo3("promedio.txt");
+    for (int i = 0; i < a; i++) {
+           archivo3 << promedio[i] << endl;
+       }
+    archivo3.close();
+}
 int main(){
     A(); 
     float promedio[a];
@@ -57,4 +69,5 @@ int main(){
     cout<<nombre[0]<<" "<<nombre[1]<<endl;
     cout<<carrera[0]<<" "<<carrera[1]<<endl;
     cout<<promedio[0]<<" "<<promedio[1]<<endl;
+
 }
