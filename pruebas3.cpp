@@ -165,8 +165,6 @@ void gm(string maestrosma[],int d1[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
-    ofstream archivomi("maestros.txt");
-    archivomi.close();
     ifstream archivom("maestros.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
@@ -192,8 +190,6 @@ void gmm(string materiasma[],int d2mt[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
-    ofstream archivomi("materias.txt");
-    archivomi.close();
     ifstream archivom("materias.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
@@ -218,8 +214,6 @@ void gcf(int califm[],int d3cf[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
-    ofstream archivomi("calif.txt");
-    archivomi.close();
     ifstream archivom("calif.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {

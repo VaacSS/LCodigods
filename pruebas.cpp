@@ -140,6 +140,9 @@ void gcf(int califm[],int d3cf[],int i){
         archivomm<<califm[i]<<endl;
     }
 }
+void archivol2(string maestrosma[]){
+
+}
 int main(){
     //A();
     float promedio[a];
@@ -166,11 +169,11 @@ int main(){
             }
         }
     }
-    /*materias[0][0]="mate";
+    materias[0][0]="mate";
     materias[0][1]="geo";
     d2mt[0]=2;
     materias[1][0]="gta";
-    d2mt[1]=1;*/
+    d2mt[1]=1;
     pls=0;
     for(int i=0;i<a;i++){
         for(int j=0;j<d2mt[i];j++){
@@ -181,11 +184,11 @@ int main(){
             }
         }
     }
-    /*calif[0][0]=100;
+    calif[0][0]=100;
     calif[0][1]=99;
     d3cf[0]=2;
     calif[1][0]=98;
-    d3cf[1]=1;*/
+    d3cf[1]=1;
     pls=0;
     for(int i=0;i<a;i++){
         for(int j=0;j<d3cf[i];j++){
