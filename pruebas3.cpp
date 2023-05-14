@@ -122,7 +122,7 @@ void archivo(float promedio[],string nombre[],string carrera[]){
     if (archivo.peek() == ifstream::traits_type::eof()) {
         ofstream archivo("nombre.txt");
         ofstream archivo1("carrera.txt");
-        ofstream archivo5("prom.txt");
+        ofstream archivo5("promedio.txt");
     }else {
         getline(archivo,nombre[0]);
         for(int i=0;i<a;i++){
@@ -165,6 +165,8 @@ void gm(string maestrosma[],int d1[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
+    ofstream archivomi("maestros.txt");
+    archivomi.close();
     ifstream archivom("maestros.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
@@ -186,10 +188,12 @@ void gm(string maestrosma[],int d1[],int i){
     }
     archivomm.close();
 }
-void gmm(string materiasm[],int d2mt[],int i){
+void gmm(string materiasma[],int d2mt[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
+    ofstream archivomi("materias.txt");
+    archivomi.close();
     ifstream archivom("materias.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
@@ -207,13 +211,15 @@ void gmm(string materiasm[],int d2mt[],int i){
         archivomm<<p[i]<<endl;
     }
     for(int i=0;i<d2mt[d];i++){
-        archivomm<<materiasm[i]<<endl;
+        archivomm<<materiasma[i]<<endl;
     }
 }
 void gcf(int califm[],int d3cf[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
+    ofstream archivomi("calif.txt");
+    archivomi.close();
     ifstream archivom("calif.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
