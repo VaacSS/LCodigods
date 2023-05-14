@@ -173,6 +173,8 @@ int main() {
         nombre[i]=" ";
         for(int j=0;j<m;j++){
             calif[i][j]=0;
+            maestros[i][j]=" ";
+            materias[i][j]=" ";
         }
     }
     for(int i=0;i<100;i++){
