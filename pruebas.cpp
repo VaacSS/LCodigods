@@ -4,6 +4,7 @@
 #include "santis.h"
 using namespace std;
 int a=2,m=100, ma=100;
+int pele=0;
 string maestros[100],materias[100];
 void A(){
     string a1;
@@ -65,8 +66,6 @@ void gm(string maestrosma[],int d1[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
-    ofstream archivomi("maestros.txt");
-    archivomi.close();
     ifstream archivom("maestros.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
@@ -92,8 +91,6 @@ void gmm(string materiasma[],int d2mt[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
-    ofstream archivomi("materias.txt");
-    archivomi.close();
     ifstream archivom("materias.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
@@ -118,8 +115,6 @@ void gcf(int califm[],int d3cf[],int i){
     string p[a*100];
     int d,d3d=0;
     d=i;
-    ofstream archivomi("calif.txt");
-    archivomi.close();
     ifstream archivom("calif.txt");
     if (archivom.peek() == ifstream::traits_type::eof()) {
     }else {
@@ -139,9 +134,6 @@ void gcf(int califm[],int d3cf[],int i){
     for(int i=0;i<d3cf[d];i++){
         archivomm<<califm[i]<<endl;
     }
-}
-void archivol2(string maestrosma[]){
-
 }
 int main(){
     //A();
@@ -203,5 +195,10 @@ int main(){
     //cout<<nombre[0]<<" "<<nombre[1]<<endl;
     //cout<<carrera[0]<<" "<<carrera[1]<<endl;
     //cout<<promedio[0]<<" "<<promedio[1]<<endl; 
+
+    ///////////////////////////////////guardar
+    
 }
+    
+
 //guardar si no tienen "  "
