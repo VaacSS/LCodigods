@@ -71,7 +71,7 @@ void addeditar(int a,int m,int ma,int e,string nombre[],string carrera[],string 
             d1[e]++;
             if(i!=(ma-1)){
             cout<<"TIENE MAS MAESTROS? (0-no / 1-si)";
-            cin>>pp;
+            pp=v();
             if(pp==0){
                 i+=ma;
             }
@@ -89,7 +89,7 @@ void addeditar(int a,int m,int ma,int e,string nombre[],string carrera[],string 
             d++;
             if(i!=(ma-1)){
             cout<<"TIENE MAS MATERIAS? (0-no / 1-si)";
-            cin>>pp;
+            pp=v();
             if(pp==0){
                 i+=ma;
             }
@@ -270,7 +270,7 @@ int main() {
         if(d[0]==1){
             cout<<"QUE NUMERO DE ALUMNO DESEAS AGREGAR/EDITAR: ";
             e=v();
-            if(e<=a){
+            if(e<=a&&e>0){
             e--;
             if(nombre[e]!=" "){
                 for(int i=0;i<a;i++){
@@ -292,22 +292,25 @@ int main() {
                 }
             }else{
                 cout<<"ESE ALUMNO NO EXISTE..."<<endl;
+                system("pause");
             }
         }else if(d[0]==2){
-            if(e<=a){
             cout<<"INGRESA EL NUMERO DEL ALUMNNO QUE DESEAS VER TODOS LOS DATOS: ";
             e=v();
             e--;
             if(nombre[e]!=" "){
+                for(int i=0;i<a;i++){
+                maestrosma[i]=maestros[e][i];
+                materiasm[i]=materias[e][i];
+                califm[i]=calif[e][i];
+                }
             datos(a,m,ma,e,nombre,carrera,maestrosma,califm,materiasm,promedio);
             system("pause");
             }else{
                 cout<<"NO HAY DATOS QUE MOSTRAR";
                 system("pause");
             }
-            }else{
-                cout<<"ESE ALUMNO NO EXISTE..."<<endl;
-            }
+            
         }else if(d[0]==3){
             cout<<"INGRESA EL NUMERO DEL ALUMNO EL CUAL DESEAS ELIMINAR TODOS SUS DATOS: ";
             e=v();
@@ -351,4 +354,4 @@ int main() {
         }
     }
 }
-// FALTA QUE GUARDE CALIF, MAESTROS Y MATERIAS
+// FALTA QUE cargur lod datos CALIF, MAESTROS Y MATERIAS y que elimine los ducumentos para que las funciones de guardar jalen bien
