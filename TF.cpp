@@ -1,3 +1,13 @@
+/*
+---------------------------------------------------------------
+NOMBRE: SANTIAGO VARGAS ACEVES
+FECHA:18/05/2023
+PROGRAMA:TRABAJO FINAL
+CENTRO UNIVERSITARIO DE LOS ALTOS/UNIVERSIDAD DE GUADALAJARA
+INGENIERIA EN COMPUTACION/2DO SEMESTRE
+PROFESOR:CRUZ FRANCO CARLOS JAVIER
+---------------------------------------------------------------
+*/
 #include <iostream>
 #include <string>
 #include <fstream>
