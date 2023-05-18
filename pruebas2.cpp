@@ -4,8 +4,8 @@
 
 using namespace std;
 int pele=0;
-void Cma(string maestrosma[]){
-        ifstream archivo("maestros.txt");
+string Cmat(int califm[]){
+        ifstream archivo("calif.txt");
         string temp;
         for(int i=0;i<pele;i++){
             getline(archivo,temp);
@@ -13,20 +13,18 @@ void Cma(string maestrosma[]){
         if(archivo.eof()){
         }else{
             for(int i=0;i<100;i++){
-            getline(archivo,maestrosma[i]);
+            getline(archivo,materiasm[i]);
             pele++;
-            if(maestrosma[i].empty()){
+            if(materiasm[i].empty()){
                 break;
             }
         }
         }
+        return temp;
     }
 int main(){
     int a=10;
-    string maestrosma[100],maestros[a][100],nombre[a];
-    nombre[0]="aa";
-    nombre[1]="aa";
-    nombre[2]="aa";
+    string materiasm[100],materias[a][100],nombre[a];
     //
     int nmbre=0;
     for(int i=0;i<a;i++){
@@ -34,19 +32,20 @@ int main(){
             nmbre++;
         }
     }
+    nmbre=3;
     for(int i=0;i<nmbre;i++){
-        Cma(maestrosma);
+        Cmat(materiasm);
         for(int j=0;j<100;j++){
-            maestros[i][j]=maestrosma[j];
+            materias[i][j]=materiasm[j];
         }
     }
     //mostrar
     for(int i=0;i<a;i++){
         for(int j=0;j<100;j++){
-            if(maestros[i][j].empty()){
+            if(materias[i][j].empty()){
             
             }else{
-                cout<<maestros[i][j]<<endl;
+                cout<<materias[i][j]<<endl;
             }  
         }
     }

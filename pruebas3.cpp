@@ -3,7 +3,7 @@
 #include <fstream>
 #include "santis.h"
 using namespace std;
-int a,m=100,ma=100;
+int a,m=100,ma=100,pele=0;
 void prom(float promedio[],int e){
     if(promedio[e]<=59){
         cout<<" (REPROBADO)"<<endl;
@@ -57,6 +57,9 @@ void addeditar(int a,int m,int ma,int e,string nombre[],string carrera[],string 
         cout<<"ANTES: "<<endl;
          datos(a,m,ma,e,nombre,carrera,maestrosma,califm,materiasm,promedio);
         cout<<"\nCAMBIOS QUE DESEES HACER: "<<endl;
+        d1[e]=0;
+        d2mt[e]=0;
+        d3cf[e]=0;
     }
     fflush(stdin);
         cout<<"NOMBRE: ";
@@ -203,12 +206,16 @@ void gmm(string materiasma[],int d2mt[],int i){
     }
     archivom.close();
     ofstream archivomm("materias.txt");
+    archivomm<<endl;
+    archivomm<<endl;
+    archivomm<<endl;
     for(int i=0;i<d3d;i++){
         archivomm<<p[i]<<endl;
     }
     for(int i=0;i<d2mt[d];i++){
         archivomm<<materiasma[i]<<endl;
     }
+    
 }
 void gcf(int califm[],int d3cf[],int i){
     string p[a*100];
@@ -234,6 +241,40 @@ void gcf(int califm[],int d3cf[],int i){
         archivomm<<califm[i]<<endl;
     }
 }
+void Cma(string maestrosma[]){
+        ifstream archivo("maestros.txt");
+        string temp;
+        for(int i=0;i<pele;i++){
+            getline(archivo,temp);
+        }
+        if(archivo.eof()){
+        }else{
+            for(int i=0;i<100;i++){
+            getline(archivo,maestrosma[i]);
+            pele++;
+            if(maestrosma[i].empty()){
+                break;
+            }
+        }
+        }
+    }
+void Cmat(string materiasm[]){
+        ifstream archivo("materias.txt");
+        string temp;
+        for(int i=0;i<pele;i++){
+            getline(archivo,temp);
+        }
+        if(archivo.eof()){
+        }else{
+            for(int i=0;i<100;i++){
+            getline(archivo,materiasm[i]);
+            pele++;
+            if(materiasm[i].empty()){
+                break;
+            }
+        }
+        }
+    }
 int main() {
     int d[5],e;
     A();
@@ -258,7 +299,26 @@ int main() {
         materiasm[i]=" ";
     }
     archivo(promedio,nombre,carrera);
+    int nmbre=0;
+    for(int i=0;i<a;i++){
+        if(nombre[i]!=" "){
+            nmbre++;
+        }
+    }
+    for(int i=0;i<nmbre;i++){
+        Cma(maestrosma);
+        for(int j=0;j<100;j++){
+            maestros[i][j]=maestrosma[j];
+        }
+    }
+    for(int i=0;i<nmbre;i++){
+        Cmat(materiasm);
+        for(int j=0;j<100;j++){
+            materias[i][j]=materiasm[j];
+        }
+    }
     do{
+        a:
         mostrar(a,nombre,carrera,promedio);
         cout<<"\nQUE DESEAS HACER: "<<endl;
         cout<<"0 - SALIR Y GUARDAR CAMBIOS"<<endl;
@@ -272,6 +332,14 @@ int main() {
             e=v();
             if(e<=a&&e>0){
             e--;
+            for(int i=0;i<e;i++){
+                if(nombre[i]==" "){
+                    cout<<"HAY ESPACIOS VACIOS ANTES DE ESTE NUMERO DE ALUMNO, AGREGALOS POR FAVOR"<<endl;
+                    system("pause");
+                    goto a;
+                    break;
+                }
+            }
             if(nombre[e]!=" "){
                 for(int i=0;i<a;i++){
                 maestrosma[i]=maestros[e][i];
@@ -316,12 +384,21 @@ int main() {
             e=v();
             e--;
             nombre[e]=" ";
+            carrera[e]=" ";
+            promedio[e]=0;
+            d1[e]=0;
+            d2mt[e]=0;
+            d3cf[e]=0;
         }else if(d[0]==4){
             exit(EXIT_SUCCESS);
         }else{
             cout<<"INGRESA ALGO VALIDO"<<endl;
         }
     }while(d[0]!=0);
+    ofstream archivooo("maestros.txt");
+    archivooo.close();
+    ofstream archivoo("materias.txt");
+    archivoo.close();
     garchivo(promedio,nombre,carrera);
     int pls=0;
     for(int i=0;i<a;i++){
@@ -354,4 +431,4 @@ int main() {
         }
     }
 }
-// FALTA QUE cargur lod datos CALIF, MAESTROS Y MATERIAS y que elimine los ducumentos para que las funciones de guardar jalen bien
+// lo nuevo son los for y la funcion Cma() Cmat() y antes de garchivo() el crear archivo y eso
