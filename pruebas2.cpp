@@ -4,49 +4,58 @@
 
 using namespace std;
 int pele=0;
-string Cmat(int califm[]){
+int Ccalf(int califm[]){
         ifstream archivo("calif.txt");
-        string temp;
+        string temp,temp1[100];
+        int stoil=0;
         for(int i=0;i<pele;i++){
             getline(archivo,temp);
         }
         if(archivo.eof()){
         }else{
             for(int i=0;i<100;i++){
-            getline(archivo,materiasm[i]);
+            getline(archivo,temp1[i]);
             pele++;
-            if(materiasm[i].empty()){
+            stoil++;
+            if(temp1[i].empty()){
+                for(int i=0;i<(stoil-1);i++){
+                    califm[i] = stoi(temp1[i]);
+                }
                 break;
             }
         }
         }
-        return temp;
+        return 0;
     }
 int main(){
     int a=10;
-    string materiasm[100],materias[a][100],nombre[a];
-    //
-    int nmbre=0;
+    int califm[100],calif[a][100];
     for(int i=0;i<a;i++){
-        if(nombre[i]!=" "){
-            nmbre++;
+        for(int j=0;j<100;j++){
+            calif[i][j]=0;
         }
     }
-    nmbre=3;
+    //
+    int nmbre=3;
     for(int i=0;i<nmbre;i++){
-        Cmat(materiasm);
+        Ccalf(califm);
         for(int j=0;j<100;j++){
-            materias[i][j]=materiasm[j];
+            calif[i][j]=califm[j];
         }
     }
     //mostrar
-    for(int i=0;i<a;i++){
+    cout<<calif[0][0]<<endl;
+    cout<<calif[0][1]<<endl;
+    cout<<calif[1][0]<<endl;
+    cout<<calif[2][0]<<endl;
+
+    /*for(int i=0;i<a;i++){
         for(int j=0;j<100;j++){
-            if(materias[i][j].empty()){
+            if(calif[i][j]==0){
             
             }else{
-                cout<<materias[i][j]<<endl;
+                cout<<calif[i][j]<<endl;
             }  
         }
-    }
+    }*/
 }

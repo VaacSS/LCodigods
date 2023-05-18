@@ -36,16 +36,18 @@ void datos(int a,int m,int ma,int e,string nombre[],string carrera[],string maes
     cout<<"MAESTROS: "<<endl;
     for(int i=0;i<ma;i++){
             fflush(stdin);
-            if(maestrosma[i]!=" "){
-                cout<<maestrosma[i]<<endl;
+            if(maestrosma[i]==" "||maestrosma[i].empty()){
+            }else{
+                cout<<i+1<<"- "<<maestrosma[i]<<endl;
             }
         }
         cout<<"MATERIAS: "<<endl;
         for(int i=0;i<a;i++){
             fflush(stdin);
-            if(materiasm[i]!=" "){
-                cout<<materiasm[i]<<endl;
-            cout<<"calificacion: "<<califm[i]<<endl;
+            if(materiasm[i]==" "||materiasm[i].empty()){
+            }else{
+                cout<<i+1<<"- "<<materiasm[i]<<endl;
+                cout<<"calificacion: "<<califm[i]<<endl;
             }
         }
 }
@@ -206,9 +208,6 @@ void gmm(string materiasma[],int d2mt[],int i){
     }
     archivom.close();
     ofstream archivomm("materias.txt");
-    archivomm<<endl;
-    archivomm<<endl;
-    archivomm<<endl;
     for(int i=0;i<d3d;i++){
         archivomm<<p[i]<<endl;
     }
@@ -275,6 +274,29 @@ void Cmat(string materiasm[]){
         }
         }
     }
+int Ccalf(int califm[]){
+        ifstream archivo("calif.txt");
+        string temp,temp1[100];
+        int stoil=0;
+        for(int i=0;i<pele;i++){
+            getline(archivo,temp);
+        }
+        if(archivo.eof()){
+        }else{
+            for(int i=0;i<100;i++){
+            getline(archivo,temp1[i]);
+            pele++;
+            stoil++;
+            if(temp1[i].empty()){
+                for(int i=0;i<(stoil-1);i++){
+                    califm[i] = stoi(temp1[i]);
+                }
+                break;
+            }
+        }
+        }
+        return 0;
+    }
 int main() {
     int d[5],e;
     A();
@@ -311,10 +333,18 @@ int main() {
             maestros[i][j]=maestrosma[j];
         }
     }
+    pele=0;
     for(int i=0;i<nmbre;i++){
         Cmat(materiasm);
         for(int j=0;j<100;j++){
             materias[i][j]=materiasm[j];
+        }
+    }
+    pele=0;
+    for(int i=0;i<nmbre;i++){
+        Ccalf(califm);
+        for(int j=0;j<100;j++){
+            calif[i][j]=califm[j];
         }
     }
     do{
@@ -399,6 +429,8 @@ int main() {
     archivooo.close();
     ofstream archivoo("materias.txt");
     archivoo.close();
+    ofstream archivool("calif.txt");
+    archivool.close();
     garchivo(promedio,nombre,carrera);
     int pls=0;
     for(int i=0;i<a;i++){
